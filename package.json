@@ -1,0 +1,19 @@
+{
+  "name": "functions-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-http": "gcloud beta functions deploy testFunction --entry-point=testFunction --memory=128MB --stage-bucket=PROJECT_ID-test-fn --trigger-http  --env-vars-file .env.yaml",
+    "deploy-storage":"gcloud beta functions deploy readFileMetadata --entry-point=readFileMetadata --runtime nodejs8 --memory=128MB --stage-bucket=PROJECT_ID-test-fn --trigger-resource PROJECT_ID-file-storage --trigger-event google.storage.object.finalize"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/kms": "^0.1.0",
+    "http-status": "^1.2.0",
+    "mysql": "^2.16.0",
+    "uuid": "^3.3.2"
+  }
+}
